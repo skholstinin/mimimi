@@ -15,7 +15,7 @@
     <spring:url value="/resources/vendor/fontawesome-free/css/all.min.css" var="fontAwesome"/>
     <spring:url value="/resources/vendor/jquery/jquery.min.js" var="jqueryJs"/>
     <spring:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" var="bootstrapJs"/>
-    <spring:url value="/resources/js/creative.js" var="creativeJs"/>
+
 
     <!-- Bootstrap core CSS -->
     <link href="${bootstrapCss}" rel="stylesheet"/>

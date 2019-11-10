@@ -16,8 +16,8 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoImplHibernate implements UserDao {
-    private static final Logger logger = Logger.getLogger(UserDaoImplHibernate.class);
+public class UserDaoImpl implements UserDao {
+    private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
     private SessionFactory sessionFactory;
 
     @Autowired
@@ -27,7 +27,7 @@ public class UserDaoImplHibernate implements UserDao {
 
 
     @Override
-    public User getUserBVyName(String name) {
+    public User getUserByName(String name) {
         Session session = sessionFactory.getCurrentSession();
         return getUserByCriteria(session, "name", name);
 
@@ -47,6 +47,7 @@ public class UserDaoImplHibernate implements UserDao {
 
     @Override
     public User getUserByLogin(String login) {
+        logger.info("UserDao login=" + login);
         Session session = sessionFactory.getCurrentSession();
         return getUserByCriteria(session, "login", login);
     }
@@ -58,9 +59,14 @@ public class UserDaoImplHibernate implements UserDao {
         query.select(root).where(builder.equal(root.get(criteria), value));
         Query<User> q = session.createQuery(query);
         List<User> resultList = q.getResultList();
+        logger.info(resultList);
         if (resultList.isEmpty()) {
+            logger.info("User not found");
             return null;
         }
+        logger.info(resultList.get(0).toString());
         return resultList.get(0);
     }
+
+
 }

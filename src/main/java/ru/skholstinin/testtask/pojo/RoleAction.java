@@ -11,10 +11,11 @@ import java.io.Serializable;
 public class RoleAction implements Serializable {
     private String role;
     private String action;
+
     @Id
     private int id;
 
-    @Column(name = "authority", length = 1024, insertable = false, updatable = false)
+    @Column(name = "action", length = 1024, insertable = false, updatable = false)
     public String getAction() {
         return action;
     }

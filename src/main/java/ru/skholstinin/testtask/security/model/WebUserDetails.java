@@ -53,6 +53,14 @@ public class WebUserDetails implements UserDetails {
     }
 
     @Override
+    public String toString() {
+        return "WebUserDetails{" +
+                "actions=" + actions +
+                ", user=" + user +
+                '}';
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
         return true; // for the time being
     }

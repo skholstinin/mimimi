@@ -5,7 +5,7 @@
 
 <div style="text-align: center">
     <h1 align="center">Мимимиметр</h1>
-    <a href="/login">Войти</a>
+    <a href="/login">Начать</a>
 </div>
 
 </html>

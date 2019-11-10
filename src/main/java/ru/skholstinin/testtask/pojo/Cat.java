@@ -15,9 +15,16 @@ public class Cat implements Serializable {
     public Cat() {
     }
 
+    public Cat(int id, String name, String ava_link, int cnt_likes) {
+        this.id = id;
+        this.name = name;
+        this.ava_link = ava_link;
+        this.cnt_likes = cnt_likes;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cat_id")
+    @Column(name = "id")
     public int getId() {
         return id;
     }

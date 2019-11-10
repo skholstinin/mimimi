@@ -27,10 +27,13 @@ public class AuthUserDetailsService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) {
+        WebUserDetails webUserDetails;
+        logger.info("username=" + username);
         User user = userDao.getUserByLogin(username);
         if (user == null) {
             throw new UsernameNotFoundException("User with username [" + username + "] not found");
         }
+
         return new WebUserDetails(
                 user,
                 user.getRoleActions()

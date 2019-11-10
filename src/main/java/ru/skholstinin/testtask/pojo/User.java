@@ -1,11 +1,11 @@
 package ru.skholstinin.testtask.pojo;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -21,25 +21,39 @@ public class User implements Serializable {
 
     public User(String name,
                 String surname,
-                boolean isEnabled,
                 String login,
                 String password,
-                String role) {
+                String role,
+                boolean isEnabled) {
 
         this.name = name;
         this.surname = surname;
-        this.isEnabled = isEnabled;
         this.login = login;
         this.password = password;
         this.role = role;
+        this.isEnabled = isEnabled;
     }
 
     public User() {
     }
 
+    public User(String name, String surname, String login, String password, String role, boolean isEnabled, List<RoleAction> roleActions) {
+        this.name = name;
+        this.surname = surname;
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.isEnabled = isEnabled;
+        this.roleActions = roleActions;
+    }
+
+    public void setRoleActions(List<RoleAction> roleActions) {
+        this.roleActions = roleActions;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -57,6 +71,7 @@ public class User implements Serializable {
         this.name = name;
     }
 
+    @Column(name = "surname")
     public String getSurname() {
         return surname;
     }

@@ -1,6 +1,7 @@
 package ru.skholstinin.testtask.controllers;
 
 import org.apache.log4j.Logger;
+import org.slf4j.ILoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,9 @@ public class LoginController {
     public String showLoginForm(
             @RequestParam(value = "error", required = false) String error,
             Model model) {
+        logger.info("Method LoginController");
         if (error != null && !error.isEmpty()) {
-            model.addAttribute("loginError", "Неверный логин или пароль");
+            model.addAttribute("loginError", "Bad login or password");
         }
         return "login";
     }
