@@ -44,3 +44,4 @@ public class LikedCatServiceImpl implements LikedCatService {
         return likedCatDao.getCntRecords();
     }
 }
+
