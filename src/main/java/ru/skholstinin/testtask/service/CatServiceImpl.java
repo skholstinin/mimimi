@@ -46,4 +46,10 @@ public class CatServiceImpl implements CatService {
     public boolean updateCat(Cat cat) {
         return catDao.updateCat(cat);
     }
+
+    @Transactional
+    @Override
+    public ArrayList<Cat> getMostLikedCats() {
+        return catDao.getMostLikedCats();
+    }
 }

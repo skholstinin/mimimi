@@ -12,4 +12,6 @@ public interface CatService {
     ArrayList<Cat> getRandomPairCats();
 
     boolean updateCat(Cat cat);
+
+    ArrayList<Cat> getMostLikedCats();
 }

@@ -15,4 +15,6 @@ public interface CatDao {
     Cat getCatById(int id);
 
     boolean updateCat(Cat cat);
+
+    ArrayList<Cat> getMostLikedCats();
 }

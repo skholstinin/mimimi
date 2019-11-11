@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.skholstinin.testtask.pojo.Cat;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 
@@ -60,6 +61,18 @@ public class CatDaoImpl implements CatDao {
             session.update(cat);
         }
         return true;
+    }
+
+    @Override
+    public ArrayList<Cat> getMostLikedCats() {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("select * from cats where cnt_likes >= (select max(cnt_likes) from cats where cnt_likes < ( select max(cnt_likes) from cats where cnt_likes < ( select max(cnt_likes) from cats))) order by cnt_likes desc limit 3");
+        ArrayList<Cat> list = (ArrayList<Cat>) query.getResultList();
+        if (!list.isEmpty()) {
+            return list;
+        }
+        Query query1 = session.createQuery("select * from cat where id < 4");
+        return (ArrayList<Cat>) query1.getResultList();
     }
 
 }

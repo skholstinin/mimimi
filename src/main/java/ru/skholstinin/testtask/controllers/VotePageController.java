@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 @Controller
 public class VotePageController {
-    private static final Logger logger = Logger.getLogger(HomeController.class);
+    private static final Logger logger = Logger.getLogger(VotePageController.class);
     private final CatService catService;
     private final LikedCatService likedCatService;
     private final UserService userService;
@@ -41,6 +41,16 @@ public class VotePageController {
         model.addAttribute("user", user);
         logger.debug(model.toString());
         return "votepage";
+    }
+
+    @Secured({Actions.USER_DASHBOARD_VIEW, Actions.USER_ANIMALS_VIEW, Actions.USER_DASHBOARD_EDIT})
+    @RequestMapping(value = "/voteresult", method = RequestMethod.GET)
+    public String voteResult(Model model) {
+        User user = userService.getUserByLogin(SecurityUtils.getAuthenticatedUsername());
+        model.addAttribute("cats", catService.getRandomPairCats());
+        model.addAttribute("user", user);
+        logger.debug(model.toString());
+        return "voteresult";
     }
 
     @Secured({Actions.USER_DASHBOARD_VIEW, Actions.USER_ANIMALS_VIEW, Actions.USER_DASHBOARD_EDIT})
