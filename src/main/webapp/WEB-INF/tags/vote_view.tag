@@ -5,19 +5,19 @@
 
 <div class="wrapper">
     <div class="card">
-        <c:if test="${not empty cats[0].avaLink}">
-            <img src="${cats[0].avaLink}" class="card-img-top" alt="Кандидат 1">
+        <c:if test="${not empty cats.get(0).ava_link}">
+            <img src="${cats.get(0).ava_link}" class="card-img-top" alt="Кандидат 1">
         </c:if>
         <div class="card-body p-0">
-            <h5 class="card-title pt-3 px-3">${cats[0].name}</h5>
+            <h5 class="card-title pt-3 px-3">${cats.get(0).name}</h5>
         </div>
     </div>
     <div class="card">
-        <c:if test="${not empty cats[1].avaLink}">
-            <img src="${cats[1].avaLink}" class="card-img-top" alt="Кандидат 2">
+        <c:if test="${not empty cats.get(1).ava_link}">
+            <img src="${cats.get(1).ava_link}" class="card-img-top" alt="Кандидат 2">
         </c:if>
         <div class="card-body p-0">
-            <h5 class="card-title pt-3 px-3">${cats[1].name}</h5>
+            <h5 class="card-title pt-3 px-3">${cats.get(1).name}</h5>
         </div>
     </div>
 </div>

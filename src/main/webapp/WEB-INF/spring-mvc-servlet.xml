@@ -23,6 +23,10 @@
         <property name="paramName" value="lang"/>
     </bean>
 
+    <bean id="defaultTargetUrl" class="java.lang.String">
+        <constructor-arg value="/votepage"/>
+    </bean>
+
     <bean id="localeResolver"
           class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
         <property name="defaultLocale" value="ru"/>

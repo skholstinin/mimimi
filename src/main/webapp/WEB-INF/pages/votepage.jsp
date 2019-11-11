@@ -21,7 +21,7 @@
         </div>
     </div>
     <div style="float:right">
-        <div class="card" style="width: 40rem;">
+        <div class="card" style="width: 18rem;">
             <c:if test="${not empty cats.get(1).ava_link}">
                 <img src="${cats.get(1).ava_link}" class="card-img-top">
             </c:if>
