@@ -8,9 +8,9 @@
     <div style="text-align: center">
         <h1 align="center">Результат голосования</h1>
     </div>
-
-    <div style="float:left">
-        <div class="card" style="width: 15rem;">
+    <div class="card" style="width: 20rem;min-height: 30rem">
+        <div class="card-block">
+            <h4 class="card-title">Первое место</h4>
             <c:if test="${not empty cats.get(0).ava_link}">
                 <img src="${cats.get(0).ava_link}" class="card-img-top">
             </c:if>
@@ -20,9 +20,9 @@
         </div>
     </div>
 
-
-    <div style="float:right">
-        <div class="card" style="width: 15rem;">
+    <div class="card" style="width: 20rem;min-height: 30rem">
+        <div class="card-block">
+            <h4 class="card-title">Второе место</h4>
             <c:if test="${not empty cats.get(1).ava_link}">
                 <img src="${cats.get(1).ava_link}" class="card-img-top">
             </c:if>
@@ -31,5 +31,18 @@
             </div>
         </div>
     </div>
+
+    <div class="card" style="width: 20rem;min-height: 30rem">
+        <div class="card-block">
+            <h4 class="card-title">Третье место</h4>
+            <c:if test="${not empty cats.get(2).ava_link}">
+                <img src="${cats.get(2).ava_link}" class="card-img-top">
+            </c:if>
+            <div class="card-body p-0">
+                <h5 class="card-title pt-3 px-3">${cats.get(2).name}</h5>
+            </div>
+        </div>
+    </div>
     </html>
+
 </t:base-page>

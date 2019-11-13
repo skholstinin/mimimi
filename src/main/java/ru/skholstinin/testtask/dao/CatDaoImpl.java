@@ -66,12 +66,16 @@ public class CatDaoImpl implements CatDao {
     @Override
     public ArrayList<Cat> getMostLikedCats() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select * from cats where cnt_likes >= (select max(cnt_likes) from cats where cnt_likes < ( select max(cnt_likes) from cats where cnt_likes < ( select max(cnt_likes) from cats))) order by cnt_likes desc limit 3");
-        ArrayList<Cat> list = (ArrayList<Cat>) query.getResultList();
+        Query query = session.createQuery("select id from Cat where cnt_likes >= (select max(cnt_likes) from Cat where cnt_likes < ( select max(cnt_likes) from Cat where cnt_likes < ( select max(cnt_likes) from Cat))) order by cnt_likes");
+        ArrayList<Integer> list = (ArrayList<Integer>) query.getResultList();
+        ArrayList<Cat> listCat = new ArrayList<>();
         if (!list.isEmpty()) {
-            return list;
+            for (Integer item : list) {
+                listCat.add(getCatById(item));
+            }
+            return listCat;
         }
-        Query query1 = session.createQuery("select * from cat where id < 4");
+        Query query1 = session.createQuery("select id from Cat where id < 4");
         return (ArrayList<Cat>) query1.getResultList();
     }
 

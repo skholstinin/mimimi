@@ -11,7 +11,9 @@ import ru.skholstinin.testtask.pojo.User;
 
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Set;
 
 
 @Repository
@@ -38,7 +40,7 @@ public class LikedCatDaoImpl implements LikedCatDao {
     @Override
     public ArrayList<Integer> getCatsIdByUserId(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select * from liked_cats where user_id =: id");
+        Query query = session.createQuery("select id from LikedCat where user_id =: id");
         query.setParameter("id", id);
         ArrayList<Integer> list = (ArrayList<Integer>) query.getResultList();
         return list;
@@ -47,7 +49,7 @@ public class LikedCatDaoImpl implements LikedCatDao {
     @Override
     public boolean checkExistencePair(Cat cat, User user) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select * from liked_cats where user_id =: user_id and cats_id =: cats_id ");
+        Query query = session.createQuery("select id from LikedCat where user_id=:user_id and cats_id=:cats_id");
         query.setParameter("user_id", user.getId());
         query.setParameter("cats_id", cat.getId());
         ArrayList<Integer> list = (ArrayList<Integer>) query.getResultList();
@@ -61,8 +63,8 @@ public class LikedCatDaoImpl implements LikedCatDao {
     @Override
     public int getCntRecords() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select count (*) from LikedCat");
-        logger.info("count records=" + (int) query.getFirstResult());
-        return query.getFirstResult();
+        int count = ((Long) session.createQuery("select count(*) from LikedCat").uniqueResult()).intValue();
+        logger.info("count records=" + count);
+        return count;
     }
 }

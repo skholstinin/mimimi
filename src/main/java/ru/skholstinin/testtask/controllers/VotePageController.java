@@ -47,7 +47,7 @@ public class VotePageController {
     @RequestMapping(value = "/voteresult", method = RequestMethod.GET)
     public String voteResult(Model model) {
         User user = userService.getUserByLogin(SecurityUtils.getAuthenticatedUsername());
-        model.addAttribute("cats", catService.getRandomPairCats());
+        model.addAttribute("cats", catService.getMostLikedCats());
         model.addAttribute("user", user);
         logger.debug(model.toString());
         return "voteresult";
@@ -61,11 +61,13 @@ public class VotePageController {
         cat.setCnt_likes(cat.getCnt_likes() + 1);
         catService.updateCat(cat);
         likedCatService.addNewLikeCat(cat, user);
-        ArrayList<Cat> llistCat = catService.getRandomPairCats();
+        ArrayList<Cat> listCat = catService.getRandomPairCats();
         if (likedCatService.getCntRecords() < 12) {
-            model.addAttribute("cats", llistCat);
+            model.addAttribute("cats", listCat);
             model.addAttribute("user", user);
             return "redirect:/votepage";
+        } else {
+            model.addAttribute("cats", catService.getMostLikedCats());
         }
         return "voteresult";
     }
