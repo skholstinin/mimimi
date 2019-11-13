@@ -76,7 +76,7 @@ public class CatDaoImpl implements CatDao {
             return listCat;
         }
         Query query1 = session.createQuery("select id from Cat where id < 4");
-        return (ArrayList<Cat>) query1.getResultList();
+        return (ArrayList<Cat>) query1.getResultList(); //FIXME  It's bug
     }
 
 }
