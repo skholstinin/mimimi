@@ -22,4 +22,12 @@ public class LoginController {
         }
         return "login";
     }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public String showRegistrationForm(
+            @RequestParam(value = "error", required = false) String error,
+            Model model) {
+        model.addAttribute("registrationError", error);
+        return "registration";
+    }
 }

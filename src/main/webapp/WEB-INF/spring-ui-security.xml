@@ -19,7 +19,9 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
     <http pattern="/index.jsp" security="none"/>
     <http pattern="/login" security="none"/>
+    <http pattern="/registration" security="none"/>
     <http pattern="/resources/**" security="none"/>
+
 
     <http auto-config="false"
           use-expressions="true"

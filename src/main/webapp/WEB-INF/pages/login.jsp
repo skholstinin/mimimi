@@ -19,6 +19,10 @@
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-info btn-block" value="Войти">
             </div>
+
+            <div class="text-center">
+                <small>Если нет аккаунта: <a class="mr-3" href="registration">"Зарегистрироваться"</a></small>
+            </div>
         </form>
     </div>
 </t:base-page>
