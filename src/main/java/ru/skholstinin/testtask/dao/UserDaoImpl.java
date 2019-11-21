@@ -52,6 +52,11 @@ public class UserDaoImpl implements UserDao {
         return getUserByCriteria(session, "login", login);
     }
 
+    @Override
+    public boolean createUser(User user) {
+        return false;
+    }
+
     private User getUserByCriteria(Session session, String criteria, String value) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);

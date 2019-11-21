@@ -1,4 +1,4 @@
-package ru.skholstinin.testtask.service;
+package ru.skholstinin.testtask.service.cats;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.skholstinin.testtask.dao.LikedCatDao;
 import ru.skholstinin.testtask.pojo.Cat;
 import ru.skholstinin.testtask.pojo.User;
+import ru.skholstinin.testtask.service.user.UserServiceImpl;
 
 import java.util.ArrayList;
 

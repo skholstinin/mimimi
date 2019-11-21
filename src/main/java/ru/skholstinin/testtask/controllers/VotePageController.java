@@ -12,9 +12,9 @@ import ru.skholstinin.testtask.pojo.Cat;
 import ru.skholstinin.testtask.pojo.User;
 import ru.skholstinin.testtask.security.Actions;
 import ru.skholstinin.testtask.security.SecurityUtils;
-import ru.skholstinin.testtask.service.CatService;
-import ru.skholstinin.testtask.service.LikedCatService;
-import ru.skholstinin.testtask.service.UserService;
+import ru.skholstinin.testtask.service.cats.CatService;
+import ru.skholstinin.testtask.service.cats.LikedCatService;
+import ru.skholstinin.testtask.service.user.UserService;
 
 import java.util.ArrayList;
 

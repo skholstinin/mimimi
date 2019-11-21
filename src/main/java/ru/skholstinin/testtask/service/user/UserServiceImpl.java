@@ -1,4 +1,4 @@
-package ru.skholstinin.testtask.service;
+package ru.skholstinin.testtask.service.user;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(int id) {
         return userDao.getUserById(id);
+    }
+
+    @Override
+    public void addUser(String name, String surName, String login, String role, String password, boolean isEnabled) {
+
     }
 
 }

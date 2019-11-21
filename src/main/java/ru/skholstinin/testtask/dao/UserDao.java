@@ -10,4 +10,6 @@ public interface UserDao {
     User getUserById(int id);
 
     User getUserByLogin(String login);
+
+    boolean createUser(User user);
 }

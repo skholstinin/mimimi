@@ -1,4 +1,4 @@
-package ru.skholstinin.testtask.service;
+package ru.skholstinin.testtask.service.cats;
 
 import ru.skholstinin.testtask.pojo.Cat;
 
